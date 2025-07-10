@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>GSAP Horizontal Scroll</title>
+  <style>
+    body, html {
+      margin: 0;
+      padding: 0;
+      overflow-x: hidden;
+    }
+
+    section {
+      width: 100%;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 3rem;
+      color: white;
+      font-weight: bold;
+    }
+
+    .s1 { background: red; }
+    .s2 { background: orange; }
+    .s3 { background: yellow; color: black; }
+    .s4 { background: green; }
+    .s5 { background: blue; }
+
+    /* 컨테이너 및 내부 가로 슬라이드 요소 스타일 */
+    .horizontal-container {
+      display: flex;
+      width: 300vw; /* 3개의 section (s2~s4) */
+    }
+
+    .panel {
+      flex: 0 0 100vw;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 3rem;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+  <section class="s1">Section 1</section>
+
+  <!-- Section 2~4를 감싸는 가로 슬라이드 컨테이너 -->
+  <section id="horizontalScroll" style="background: transparent; padding: 0;">
+    <div class="horizontal-container">
+      <div class="panel s2">Section 2</div>
+      <div class="panel s3">Section 3</div>
+      <div class="panel s4">Section 4</div>
+    </div>
+  </section>
+
+  <section class="s5">Section 5</section>
+
+  <!-- GSAP CDN -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+  <script>
+    gsap.registerPlugin(ScrollTrigger);
+
+    // 수평 스크롤 애니메이션
+    gsap.to(".horizontal-container", {
+      xPercent: -200, // 3개의 패널이므로 -100% * (n-1)
+      ease: "none",
+      scrollTrigger: {
+        trigger: "#horizontalScroll",
+        start: "top top",
+        end: "+=3000", // 스크롤 거리 조정
+        scrub: true,
+        pin: true,
+        anticipatePin: 1
+      }
+    });
+  </script>
+</body>
+</html>
