@@ -1,11 +1,10 @@
 import './App.css'
-import HorizontalScroll from './HorizontalScroll';
+import ParallaxScroll from './ParallaxScroll';
 
 function App() {
-
   return (
     <>
-      <HorizontalScroll />
+      <ParallaxScroll />
     </>
   )
 }

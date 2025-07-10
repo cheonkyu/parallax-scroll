@@ -66,3 +66,41 @@ button:focus-visible {
     background-color: #f9f9f9;
   }
 }
+
+/* --- ParallaxScroll 추가 스타일 --- */
+@import url('https://webfontworld.github.io/pretendard/Pretendard.css');
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@100&display=swap');
+
+* {
+  box-sizing: border-box;
+}
+
+.parallaxs__wrap {
+  width: 100vw;
+}
+.parallaxs__item {
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+}
+.parallaxs__item__num {
+  position: absolute;
+  bottom: 20px;
+  right: 60px;
+  color: #fff;
+  font-size: 10vw;
+  z-index: 1000;
+  font-family: 'Lato', sans-serif;
+  font-weight: 100;
+}
+.sec4 {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 300vw;
+  height: 100%;
+  display: flex;
+}
+.parallax__info {
+  z-index: 10000;
+}
